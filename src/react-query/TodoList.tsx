@@ -15,10 +15,11 @@ const TodoList = () => {
 			.get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
 			.then((res) => res.data);
 
-	const { data: todos } = useQuery({
+	const { data: todos, error } = useQuery<Todo[], Error>({
 		queryKey: ['todos'],
 		queryFn: fetchTodos,
 	});
+	if (error) return <p>{error.message}</p>;
 
 	// We don't need the following data using react-query anymore:
 	//------------------------------------------------
@@ -31,7 +32,6 @@ const TodoList = () => {
 	// 		.then((res) => setTodos(res.data))
 	// 		.catch((error) => setError(error));
 	// }, []);
-	// if (error) return <p>{error}</p>;
 	//------------------------------------------------
 
 	return (
