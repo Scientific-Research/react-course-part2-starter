@@ -3,7 +3,7 @@ import usePosts from './hooks/usePosts';
 
 const PostList = () => {
 	const [userId, setUserId] = useState<number>();
-	const { data: posts, error, isLoading } = usePosts();
+	const { data: posts, error, isLoading } = usePosts(userId);
 
 	if (isLoading) return <p>Loading...</p>;
 	if (error) return <p>{error.message}</p>;
@@ -11,7 +11,9 @@ const PostList = () => {
 	return (
 		<>
 			<select
-				onChange={(e) => console.log(e.target.value)}
+				// onChange={(e) => console.log(e.target.value)}
+				onChange={(e) => setUserId(parseInt(e.target.value))}
+				value={userId}
 				className="form-select mb-3"
 			>
 				<option value=""></option>
