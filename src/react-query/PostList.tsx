@@ -29,6 +29,20 @@ const PostList = () => {
 					</li>
 				))}
 			</ul>
+			<button
+				onClick={() => setPage(page - 1)}
+				disabled={page === 1}
+				className="btn btn-primary my-3"
+			>
+				Previous
+			</button>
+			<button
+				onClick={() => setPage(page + 1)}
+				className="btn btn-primary my-3 ms-3"
+				disabled={page === pageSize}
+			>
+				Next
+			</button>
 		</>
 	);
 };
