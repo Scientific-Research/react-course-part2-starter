@@ -18,7 +18,7 @@ const usePosts = (userId: number | undefined) => {
 
 	return useQuery<Post[], Error>({
 		// /users/1/posts
-		queryKey: ['users', userId, 'posts'],
+		queryKey: userId ? ['users', userId, 'posts'] : ['posts'],
 		queryFn: fetchPosts,
 		staleTime: 1 * 60 * 1000, //1min =>60000ms
 	});
