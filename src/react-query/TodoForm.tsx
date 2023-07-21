@@ -54,6 +54,7 @@ const TodoForm = () => {
 				<div className="col">
 					<button
 						disabled={addTodo.isLoading}
+						// disabled={ref.current?.value === ''}
 						className="btn btn-primary"
 					>
 						{addTodo.isLoading ? 'Adding...' : 'Add'}
