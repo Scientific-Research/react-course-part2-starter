@@ -10,7 +10,13 @@ const TodoForm = () => {
 			axios
 				.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
 				.then((res) => res.data),
-        
+		onMutate: (newTodo: Todo) => {
+			queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
+				newTodo,
+				...(todos ? todos : []),
+			]);
+			if (ref.current) ref.current.value = '';
+		},
 		onSuccess: (saveTodo, newTodo) => {
 			// console.log(saveTodo);
 			//Approach:Invalidating the cache
@@ -19,11 +25,6 @@ const TodoForm = () => {
 			// 	queryKey: ['todos'],
 			// });
 			//Approach 2: updating the data in the cache directly:
-			queryClient.setQueryData<Todo[]>(['todos'], (todos) => [
-				saveTodo,
-				...(todos ? todos : []),
-			]);
-			if (ref.current) ref.current.value = '';
 		},
 	});
 	const ref = useRef<HTMLInputElement>(null);
