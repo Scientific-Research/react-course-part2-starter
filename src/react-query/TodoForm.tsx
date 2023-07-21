@@ -10,6 +10,7 @@ const TodoForm = () => {
 			axios
 				.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
 				.then((res) => res.data),
+        
 		onSuccess: (saveTodo, newTodo) => {
 			// console.log(saveTodo);
 			//Approach:Invalidating the cache
