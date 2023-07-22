@@ -1,4 +1,6 @@
+import { QueryFunction, QueryKey } from '@tanstack/react-query';
 import axios from 'axios';
+import { Todo } from './todoService';
 
 const axiosInstance = axios.create({
 	baseURL: 'https://jsonplaceholder.typicode.com',
@@ -6,6 +8,7 @@ const axiosInstance = axios.create({
 
 class APIClient<T> {
 	endpoint: string;
+	static getAll: QueryFunction<Todo[], QueryKey, any> | undefined;
 
 	constructor(endpoint: string) {
 		this.endpoint = endpoint;
