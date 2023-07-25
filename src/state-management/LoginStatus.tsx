@@ -12,9 +12,9 @@ const LoginStatus = () => {
 				<div>
 					<span className="mx-2">{user}</span>
 					<a
-						onClick={() =>
-							// dispatch({ type: 'LOGOUT', password: '2132' })
-							dispatch({ type: 'LOGOUT' })
+						onClick={
+							() => dispatch({ type: 'LOGOUT', password: '2132' })
+							// dispatch({ type: 'LOGOUT' })
 						}
 						href="#"
 					>
