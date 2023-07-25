@@ -1,15 +1,20 @@
 import { useReducer } from 'react';
-import loginReducer from './reducers/authReducer';
+import authReducer from './reducers/authReducer';
 
 const LoginStatus = () => {
 	// const [user, setUser] = useState('');
-	const [user, dispatch] = useReducer(loginReducer, '');
+	const [user, dispatch] = useReducer(authReducer, '');
 	if (user)
 		return (
 			<>
 				<div>
 					<span className="mx-2">{user}</span>
-					<a onClick={() => dispatch({ type: 'LOGOUT' })} href="#">
+					<a
+						onClick={() =>
+							dispatch({ type: 'LOGOUT', password: '2132' })
+						}
+						href="#"
+					>
 						Logout
 					</a>
 				</div>
@@ -17,7 +22,12 @@ const LoginStatus = () => {
 		);
 	return (
 		<div>
-			<a onClick={() => dispatch({ type: 'LOGIN' })} href="#">
+			<a
+				onClick={() =>
+					dispatch({ type: 'LOGIN', username: 'Maxi.Paxi' })
+				}
+				href="#"
+			>
 				Login
 			</a>
 		</div>

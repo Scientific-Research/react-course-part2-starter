@@ -1,10 +1,17 @@
-interface Action {
-	type: 'LOGIN' | 'LOGOUT';
+interface LoginAction {
+	type: 'LOGIN';
+	username: string;
+}
+interface LogoutAction {
+	type: 'LOGOUT';
+	password: string;
 }
 
-const authReducer = (state: string, action: Action): string => {
-	if (action.type === 'LOGIN') return 'Maxi.Paxi';
-	if (action.type === 'LOGOUT') return '';
+type authAction = LoginAction | LogoutAction;
+
+const authReducer = (state: string, action: authAction): string => {
+	if (action.type === 'LOGIN') return action.username;
+	if (action.type === 'LOGOUT') return action.password;
 	return state;
 };
 
