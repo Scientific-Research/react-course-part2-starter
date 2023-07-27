@@ -14,8 +14,8 @@ function App() {
 		// <TasksContext.Provider value={{ tasks, dispatch: taskDispatch }}>
 		//<AuthContext.Provider value={{ user, dispatch: authDispatch }}>
 		<TaskProvider>
-			<NavBar />
 			<Counter />
+			<NavBar />
 			<HomePage />
 			<LoginStatus />
 		</TaskProvider>
