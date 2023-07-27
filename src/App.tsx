@@ -1,5 +1,4 @@
 import './App.css';
-import AuthProvider from './state-management/auth/AuthProvider';
 import HomePage from './state-management/HomePage';
 import LoginStatus from './state-management/auth/LoginStatus';
 import NavBar from './state-management/NavBar';
@@ -15,12 +14,10 @@ function App() {
 		// <TasksContext.Provider value={{ tasks, dispatch: taskDispatch }}>
 		//<AuthContext.Provider value={{ user, dispatch: authDispatch }}>
 		<TaskProvider>
-			<AuthProvider>
-				<NavBar />
-				<HomePage />
-				<LoginStatus />
-				<Counter />
-			</AuthProvider>
+			<NavBar />
+			<Counter />
+			<HomePage />
+			<LoginStatus />
 		</TaskProvider>
 	);
 }
