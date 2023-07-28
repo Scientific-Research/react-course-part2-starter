@@ -20,6 +20,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'users/:id',
+				// element: <UserListPage />,
 				element: <UserDetailPage />,
 			},
 		],
